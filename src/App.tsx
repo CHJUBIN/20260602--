@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { ArrowDown, ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowDown, Search, Sparkles } from 'lucide-react';
 import DetergentGuide from './components/DetergentGuide';
 import HouseworkQuiz from './components/HouseworkQuiz';
+import HouseworkSearch from './components/HouseworkSearch';
 import RoomFlowchart from './components/RoomFlowchart';
 import { HERO_IMAGE_PATH, ROOM_GUIDES, RoomId } from './data/houseworkData';
 
@@ -63,16 +64,16 @@ export default function App() {
             className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600"
           >
             <a
+              href="#housework-search"
+              className="hover:text-slate-900 hover:underline underline-offset-4 transition-colors whitespace-nowrap shrink-0"
+            >
+              질문·검색
+            </a>
+            <a
               href="#room-guides"
               className="hover:text-slate-900 hover:underline underline-offset-4 transition-colors whitespace-nowrap shrink-0"
             >
               장소별 가이드
-            </a>
-            <a
-              href="#cleaning-flowchart"
-              className="hover:text-slate-900 hover:underline underline-offset-4 transition-colors whitespace-nowrap shrink-0"
-            >
-              청소 순서도
             </a>
             <a
               href="#detergent-guide"
@@ -127,19 +128,19 @@ export default function App() {
                 <div className="mt-7 flex flex-wrap items-center gap-3">
                   <button
                     type="button"
-                    onClick={() => scrollToSection('room-guides')}
+                    onClick={() => scrollToSection('housework-search')}
                     className="inline-flex items-center gap-2 px-5 py-3 text-sm font-medium text-white bg-slate-900 hover:bg-slate-800 rounded-xl transition-colors whitespace-nowrap shrink-0"
                   >
-                    <span>장소별 가이드 보기</span>
-                    <ArrowDown className="w-4 h-4" />
+                    <Search className="w-4 h-4" />
+                    <span>집안일 방법 검색하기</span>
                   </button>
                   <button
                     type="button"
-                    onClick={() => scrollToSection('housework-quiz')}
+                    onClick={() => scrollToSection('room-guides')}
                     className="inline-flex items-center gap-2 px-5 py-3 text-sm font-medium text-teal-800 bg-white border border-slate-200 hover:border-teal-600 rounded-xl transition-colors whitespace-nowrap shrink-0"
                   >
-                    <span>80점 살림 퀴즈 풀기</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <span>장소별 가이드 보기</span>
+                    <ArrowDown className="w-4 h-4" />
                   </button>
                 </div>
 
@@ -198,6 +199,9 @@ export default function App() {
             </div>
           </div>
         </section>
+
+        {/* Search & Question Explanation Section */}
+        <HouseworkSearch onJumpToRoom={handleJumpToRoom} />
 
         {/* Room Guides & Interactive Flowchart */}
         <RoomFlowchart
