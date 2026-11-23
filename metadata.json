@@ -1,0 +1,8 @@
+{
+  "name": "살림의 정석",
+  "description": "화장실, 주방, 거실, 침실 등 장소별 집안일 순서도와 실전 청소 팁, 천연 세제 조합법, 80점 달성 살림 퀴즈를 제공하는 생활 가이드입니다.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
